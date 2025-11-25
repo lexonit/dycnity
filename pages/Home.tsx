@@ -5,7 +5,7 @@ import {
   CheckCircle2, TrendingUp, Globe
 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, Tooltip } from 'recharts';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
 import SEO from '../components/SEO';
 
@@ -38,6 +38,22 @@ const staggerContainer = {
 };
 
 const Home: React.FC = () => {
+  const phrases = [
+    'Intelligent IT Solutions',
+    'Enterprise Automation',
+    'Cloud & DevOps Excellence',
+    'AI & Data Analytics',
+    'Secure QA & Testing'
+  ];
+
+  const [activeIdx, setActiveIdx] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % phrases.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, [phrases.length]);
+
   return (
     <>
       <SEO
@@ -59,8 +75,19 @@ const Home: React.FC = () => {
         >
           <motion.h1 variants={fadeInUp} className="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white tracking-tight mb-8">
             Empowering Businesses With <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400">
-              Intelligent IT Solutions
+            <span className="inline-block min-h-[1.2em] text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400" aria-live="polite">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={phrases[activeIdx]}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.6 }}
+                  className="block"
+                >
+                  {phrases[activeIdx]}
+                </motion.span>
+              </AnimatePresence>
             </span>
           </motion.h1>
           <motion.p variants={fadeInUp} className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
