@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +22,14 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-10 px-4 pb-20">
+    <>
+      <SEO
+        title="Contact DYCnity - Get in Touch for IT Consulting Services"
+        description="Contact DYCnity for expert IT consulting and digital transformation services. Located in Dubai, UAE. Email: dyc.itservices@gmail.com | Phone: +971-55-123-4567"
+        keywords="contact DYCnity, IT consulting Dubai, get quote, technology consulting contact, business inquiry"
+        canonical="https://dycnity.com/contact"
+      />
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-10 px-4 pb-20">
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -169,7 +177,8 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </motion.div>
-    </div>
+      </div>
+    </>
   );
 };
 

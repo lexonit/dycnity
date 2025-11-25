@@ -2,12 +2,20 @@ import React from 'react';
 import { Target, Eye, Heart, Award, Briefcase } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
+import SEO from '../components/SEO';
 
 const About: React.FC = () => {
   return (
-    <div className="pt-10">
-      {/* Introduction */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-20">
+    <>
+      <SEO
+        title="About DYCnity - Leading IT Consulting & Technology Solutions Company"
+        description="Learn about DYCnity's mission, vision, and values. We deliver end-to-end digital transformation solutions with 15+ years of expertise across Banking, FinTech, Retail, and Healthcare."
+        keywords="about DYCnity, IT consulting company, technology solutions, digital transformation experts, software development team"
+        canonical="https://dycnity.com/about"
+      />
+      <div className="pt-10">
+        {/* Introduction */}
+        <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-20">
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -106,7 +114,8 @@ const About: React.FC = () => {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

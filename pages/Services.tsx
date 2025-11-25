@@ -2,6 +2,7 @@ import React from 'react';
 import { Settings, Code, Shield, Cloud, Database, Users, Check, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
+import SEO from '../components/SEO';
 
 const ServiceDetailCard: React.FC<{
   title: string;
@@ -125,8 +126,15 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen">
-      <div className="bg-indigo-900 dark:bg-slate-900 py-20 text-center relative overflow-hidden rounded-b-[3rem] mb-16 mx-0 md:mx-4 text-white border-b border-indigo-800 dark:border-slate-800">
+    <>
+      <SEO
+        title="DYCnity Services - IT Consulting, Software Development & Cloud Solutions"
+        description="Explore DYCnity's comprehensive IT services: IT consulting, custom software development, QA automation, cloud & DevOps, AI & data analytics, and managed tech talent solutions."
+        keywords="IT consulting services, software development, QA automation, cloud migration, DevOps services, AI solutions, data analytics, managed IT services, tech staffing"
+        canonical="https://dycnity.com/services"
+      />
+      <div className="bg-slate-50 dark:bg-slate-950 min-h-screen">
+        <div className="bg-indigo-900 dark:bg-slate-900 py-20 text-center relative overflow-hidden rounded-b-[3rem] mb-16 mx-0 md:mx-4 text-white border-b border-indigo-800 dark:border-slate-800">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] opacity-10 bg-cover bg-center" />
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -162,7 +170,8 @@ const Services: React.FC = () => {
           ))}
         </motion.div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

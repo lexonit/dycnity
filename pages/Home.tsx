@@ -7,6 +7,7 @@ import {
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, Tooltip } from 'recharts';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
+import SEO from '../components/SEO';
 
 const dataSuccess = [
   { name: 'Success', value: 98 },
@@ -38,9 +39,16 @@ const staggerContainer = {
 
 const Home: React.FC = () => {
   return (
-    <div className="overflow-hidden">
-      {/* Background Gradients */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-tr from-purple-200 via-pink-200 to-indigo-200 dark:from-indigo-900/30 dark:via-purple-900/30 dark:to-pink-900/30 rounded-full blur-3xl opacity-50 -z-10" />
+    <>
+      <SEO
+        title="DYCnity - IT Consulting & Digital Transformation Services | Enterprise Solutions"
+        description="Transform your business with DYCnity's expert IT consulting, software development, cloud solutions, and digital transformation services. 98% client satisfaction. Contact us today!"
+        keywords="IT consulting, software development, cloud services, digital transformation, enterprise solutions, DevOps, AI consulting, data analytics, QA automation, technology consulting"
+        canonical="https://dycnity.com/"
+      />
+      <div className="overflow-hidden">
+        {/* Background Gradients */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-tr from-purple-200 via-pink-200 to-indigo-200 dark:from-indigo-900/30 dark:via-purple-900/30 dark:to-pink-900/30 rounded-full blur-3xl opacity-50 -z-10" />
       
       {/* Hero Section */}
       <section className="relative px-6 lg:px-8 py-20 lg:py-32 max-w-7xl mx-auto text-center">
@@ -290,7 +298,8 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

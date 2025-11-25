@@ -2,6 +2,7 @@ import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 interface Project {
   title: string;
@@ -44,8 +45,15 @@ const Portfolio: React.FC = () => {
   ];
 
   return (
-    <div className="pt-10 min-h-screen">
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-16">
+    <>
+      <SEO
+        title="DYCnity Portfolio - Successful IT Projects & Case Studies"
+        description="Explore DYCnity's portfolio of successful IT projects including mobile app development, ERP implementation, test automation, and data analytics solutions for enterprise clients."
+        keywords="IT portfolio, case studies, mobile app development, ERP implementation, test automation, data analytics projects, successful IT projects"
+        canonical="https://dycnity.com/portfolio"
+      />
+      <div className="pt-10 min-h-screen">
+        <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-16">
         <SectionHeader title="Our Recent Work" subtitle="Portfolio" />
         
         <motion.div 
@@ -69,8 +77,9 @@ const Portfolio: React.FC = () => {
               <div className="h-64 overflow-hidden">
                 <img 
                   src={project.image} 
-                  alt={project.title} 
+                  alt={`${project.title} - ${project.category} project showcasing ${project.tags.join(', ')} technologies`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
                 />
               </div>
               <div className="p-8">
@@ -117,7 +126,8 @@ const Portfolio: React.FC = () => {
             </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 
